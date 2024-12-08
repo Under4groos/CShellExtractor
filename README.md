@@ -2,23 +2,6 @@
 
 Экспорт изображений из различных программ и файлов.
 
-# Resources 
-HMODULE LoadLibraryExA([in] LPCSTR lpLibFileName,HANDLE hFile, [in] DWORD  dwFlags);
-```
-https://learn.microsoft.com/ru-ru/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa
-```
-FARPROC GetProcAddress( [in] HMODULE hModule,[in] LPCSTR  lpProcName);
-```
-https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-getprocaddress
-```
-typedef-function-pointer / typedef void (*myfunc)();
-```
-https://stackoverflow.com/questions/4295432/typedef-function-pointer
-```
-[DllImport(LibExtern, CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-```
-https://learn.microsoft.com/ru-ru/dotnet/api/system.runtime.interopservices.dllimportattribute?view=net-9.0
-```
 ## Projects
 1. cmd_IconExtract_CS - C# and C++ (dynamic lib)
 2. cmd_IconExtract - C++ and C++ (dynamic lib)
@@ -81,4 +64,22 @@ int main()
     }
     std::cout << "Hello World!\n";
 }
+```
+
+# Resources 
+HMODULE LoadLibraryExA([in] LPCSTR lpLibFileName,HANDLE hFile, [in] DWORD  dwFlags);
+```
+https://learn.microsoft.com/ru-ru/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa
+```
+FARPROC GetProcAddress( [in] HMODULE hModule,[in] LPCSTR  lpProcName);
+```
+https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-getprocaddress
+```
+typedef-function-pointer / typedef void (*myfunc)();
+```
+https://stackoverflow.com/questions/4295432/typedef-function-pointer
+```
+[DllImport(LibExtern, CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+```
+https://learn.microsoft.com/ru-ru/dotnet/api/system.runtime.interopservices.dllimportattribute?view=net-9.0
 ```
