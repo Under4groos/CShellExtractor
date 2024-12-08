@@ -15,7 +15,7 @@ typedef-function-pointer / typedef void (*myfunc)();
 ```
 https://stackoverflow.com/questions/4295432/typedef-function-pointer
 ```
-[DllImport(LibExtern, CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Export_ExtructIconToFile")]public static extern IntPtr ExtructIconToFile(string filePath, string outputPath);
+[DllImport(LibExtern, CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
 ```
 https://learn.microsoft.com/ru-ru/dotnet/api/system.runtime.interopservices.dllimportattribute?view=net-9.0
 ```
