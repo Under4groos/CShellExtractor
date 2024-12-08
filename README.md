@@ -1,5 +1,18 @@
 # CShellExtractor
 
+# Resources 
+HMODULE LoadLibraryExA([in] LPCSTR lpLibFileName,HANDLE hFile, [in] DWORD  dwFlags);
+```
+https://learn.microsoft.com/ru-ru/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa
+```
+FARPROC GetProcAddress( [in] HMODULE hModule,[in] LPCSTR  lpProcName);
+```
+https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-getprocaddress
+```
+typedef-function-pointer / typedef void (*myfunc)();
+```
+https://stackoverflow.com/questions/4295432/typedef-function-pointer
+```
 ## Projects
 1. cmd_IconExtract_CS - C# and C++ (dynamic lib)
 2. cmd_IconExtract - C++ and C++ (dynamic lib)
@@ -32,4 +45,34 @@ IntPtr status = Interop.ExtructIconToFile(
                Path.GetFullPath(@"extruct.png"));
 Console.WriteLine(status);
 Console.ReadLine();
+```
+
+
+### C++ and C++
+
+
+```C++
+// cmd_IconExtract.cpp
+#include <iostream>
+#include <Windows.h>
+
+typedef int(*FUNC_ExtructIconToFile)(const char* filePath, const WCHAR* outputPath);
+
+const char* lib_ = "CShellExtractor.dll";
+int main()
+{
+    // int ExtructIconToFile(const char* filePath, const WCHAR* outputPath)
+    HMODULE module = LoadLibraryExA(lib_, NULL, 0);
+    if (module) {
+        FUNC_ExtructIconToFile func_ = (FUNC_ExtructIconToFile)GetProcAddress(module, "Export_ExtructIconToFile");
+        if (func_) {
+            const char* filepath = "C:\\Users\\UnderKo\\Downloads\\Uninstall Tool.rar";
+            const WCHAR* outputPath = L"C:\\Users\\UnderKo\\Downloads\\extruct.png";
+            int status = func_(filepath, outputPath);
+
+            std::cout << status << std::endl;
+        }
+    }
+    std::cout << "Hello World!\n";
+}
 ```
